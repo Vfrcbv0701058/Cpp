@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		64693B0A29CB0873006ADC44 /* Rock Paper Scissors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Rock Paper Scissors"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E5551929CB08DC00AF27CF /* Rock Paper Scissors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Rock Paper Scissors.cpp"; sourceTree = "<group>"; };
+		64E5551C29CB194C00AF27CF /* RPS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RPS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		64693B0129CB0873006ADC44 = {
 			isa = PBXGroup;
 			children = (
+				64E5551C29CB194C00AF27CF /* RPS.h */,
 				64E5551929CB08DC00AF27CF /* Rock Paper Scissors.cpp */,
 				64693B0B29CB0873006ADC44 /* Products */,
 			);

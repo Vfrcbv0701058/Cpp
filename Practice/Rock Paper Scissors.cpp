@@ -1,7 +1,4 @@
-# include <iostream>
-# include <string>
-using namespace std;
-string rps (const string& p1, const string& p2);
+#include "RPS.h"
 
 int main(){
     string p1, p2, result;
