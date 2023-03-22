@@ -1,4 +1,4 @@
-#include "RPS.h"
+#include "./Header files/RPS.h"
 
 int main(){
     string p1, p2, result;
