@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6497564C29CB6E3A00E3BF4E /* string->num.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6497564A29CB6E3A00E3BF4E /* string->num.cpp */; };
+		64CACC0129DA1264009F6ADB /* rectangle by * .cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64CACBFF29DA1264009F6ADB /* rectangle by * .cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		64693B0A29CB0873006ADC44 /* Rock Paper Scissors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Rock Paper Scissors"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6497564A29CB6E3A00E3BF4E /* string->num.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "string->num.cpp"; sourceTree = "<group>"; };
+		64CACBFF29DA1264009F6ADB /* rectangle by * .cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "rectangle by * .cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +41,7 @@
 		64693B0129CB0873006ADC44 = {
 			isa = PBXGroup;
 			children = (
-				6497564A29CB6E3A00E3BF4E /* string->num.cpp */,
+				64CACBFF29DA1264009F6ADB /* rectangle by * .cpp */,
 				64693B0B29CB0873006ADC44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,7 +111,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6497564C29CB6E3A00E3BF4E /* string->num.cpp in Sources */,
+				64CACC0129DA1264009F6ADB /* rectangle by * .cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
