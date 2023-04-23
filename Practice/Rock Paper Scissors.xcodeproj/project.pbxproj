@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		647E06BF29EDFC34008B43BB /* Homework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 647E06BD29EDFC34008B43BB /* Homework.cpp */; };
-		64D2793B29EEAB250003FC09 /* Homework 2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64D2793929EEAB250003FC09 /* Homework 2.cpp */; };
+		64D2793B29EEAB250003FC09 /* inserting a number into an array element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64D2793929EEAB250003FC09 /* inserting a number into an array element.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,8 +24,7 @@
 
 /* Begin PBXFileReference section */
 		64693B0A29CB0873006ADC44 /* Rock Paper Scissors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Rock Paper Scissors"; sourceTree = BUILT_PRODUCTS_DIR; };
-		647E06BD29EDFC34008B43BB /* Homework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Homework.cpp; sourceTree = "<group>"; };
-		64D2793929EEAB250003FC09 /* Homework 2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Homework 2.cpp"; sourceTree = "<group>"; };
+		64D2793929EEAB250003FC09 /* inserting a number into an array element.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "inserting a number into an array element.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,8 +41,7 @@
 		64693B0129CB0873006ADC44 = {
 			isa = PBXGroup;
 			children = (
-				64D2793929EEAB250003FC09 /* Homework 2.cpp */,
-				647E06BD29EDFC34008B43BB /* Homework.cpp */,
+				64D2793929EEAB250003FC09 /* inserting a number into an array element.cpp */,
 				64693B0B29CB0873006ADC44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,8 +111,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				647E06BF29EDFC34008B43BB /* Homework.cpp in Sources */,
-				64D2793B29EEAB250003FC09 /* Homework 2.cpp in Sources */,
+				64D2793B29EEAB250003FC09 /* inserting a number into an array element.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
