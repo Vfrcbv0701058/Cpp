@@ -509,13 +509,81 @@ class MyClass{
 };
 // Деструктор в классе должен быть один и для него нет возможности перегрузки и для него нет перегрузки
 
+// THIS
 
+this -> 
+// В C++ ключевое слово  this используется для обращения к объекту класса, в котором он был вызван
+class Person {
+private:
+    int age;
+public:
+    void setAge(int age) {
+        this->age = age;
+    }
+};
+// В этом примере this указывает на текущий объект, а -> используется для доступа к переменной age (которая находиться в private)
+// и установке ее значения (которое мы получили в функции setAge)
 
+// Конструктор копирования. Что это. Пример. Когда вызывается Копирование объектов по умолчанию
+// https://www.youtube.com/watch?v=3x9nd6Tm7Pc&list=PLQOaTSbfxUtCrKs0nicOg2npJQYSPGO9r&index=96
 
+int main(){
+    MyClass a(32);
+    MyClass b(a);
+}
+// MyClass b(a) создается таким же как и MyClass a(32), полностью его копируя
 
+class MyClass{
+private:
+    int size;
+public:
+    int *data;
+    /// Создание и заполнение массива
+    MyClass(int size){
+        this -> size = size;
+// Мы создаем новую вещь и хотим, чтобы она имела размер, поэтому мы устанавливаем размер новой вещи таким, каким мы ее задаем
+        /// Заполняем новый массив
+        this -> data = new int [size];
+        for (int i = 0; i<size; i++)
+            data[i] = i;
+        cout << "Вызвался конструктор\t" << this << endl;
+    }
+    
+    
+    /// Конструктор копирования
+    MyClass(const MyClass &other){
+        cout << "Вызвался конструктор копирования\t" << this << endl;
+        this -> size = other.size;
+// Мы хотим, чтобы новая вещь имела тот же размер, что и копируемая вещь, поэтому мы устанавливаем ее размер таким же, как размер копируемой вещи
+        this -> data = new int[other.size];
+        for(int i = 0; i < other.size; i++)
+            this -> data[i] = other.data[i];
+    }
+};
+delete []this -> data;
+// удалим данные которые в указателе this
 
+MyClass A(10); 
+// Создали обьект А
+MyClass B(a); 
+// вызвали конструктор копирования что бы обьект В при создании был такой же как и А
+MyClass B = A;
+// аналогичная запись, тут тоже ,если В нигде небыл обьявлен ранее, то вызовется конструктор копирования
 
- 
+// Перегрузка операторов пример. ООП. Перегрузка оператора присваивания
+// https://www.youtube.com/watch?v=nMM98LVJn-U&list=PLQOaTSbfxUtCrKs0nicOg2npJQYSPGO9r&index=96
+
+class MyClass {
+public:
+    MyClass& operator=(const MyClass& other) {
+        // при выолнении a = b мы попадаем сюда и код который тут будет выполнен
+        return *this;
+    }
+};
+
+MyClass a;
+MyClass b;
+a = b; 
 
 
 
@@ -523,6 +591,12 @@ class MyClass{
 
 
 // Прочая полезная фигня
+
+// ООП
+MyClass(int size)
+    this -> size = size;
+// вместо this можно сделать следующим образом
+MyClass(int size):size
 
 // считывать строки которые пользователь вводит лучше командой .getline
 char string1[500];
