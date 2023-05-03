@@ -585,6 +585,40 @@ MyClass a;
 MyClass b;
 a = b; 
 
+// Перегрузка оператора сложения
+
+point operator +(const point & other){
+    point temp;
+    temp.x = this -> x + other.x;
+    temp.y = this -> y + other.y;
+    return temp;
+}
+
+// Перегрузка инкремента и декремента. Постфиксного и префиксного
+
+// префиксный инкримент(++a)
+point & operator ++(){
+    this -> x += 1;
+    this -> y++;
+    return *this;
+    }    
+// постфиксный инкримент(a++)
+point & operator ++(int value){
+    this -> x++;
+    this -> y++;
+    return *this;
+}
+
+// Перегрузка оператора индексирования
+
+int & operator[](int index){
+return arr[index];
+}
+
+
+
+
+
 
 
 
