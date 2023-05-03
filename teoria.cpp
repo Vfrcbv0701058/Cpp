@@ -615,6 +615,43 @@ int & operator[](int index){
 return arr[index];
 }
 
+// Дружественные функции и классы
+
+// создаем дружественную функцию
+class ClassA {
+private:
+    int private_data_;
+
+    friend void functionC(ClassA& obj); 
+    // объявляем функцию как дружественную
+};
+void functionC(ClassA& obj) {
+    obj.private_data_ = 42;
+    // функция имеет доступ к приватным членам ClassA
+}
+
+// создаем дружественый класс
+class ClassA {
+private:
+    int private_data_;
+
+    friend class ClassB; 
+    // объявляем ClassB как дружественный класс
+};
+
+class ClassB {
+public:
+    void function(ClassA& obj) {
+        obj.private_data_ = 42; 
+        // ClassB имеет доступ к приватным членам ClassA
+    }
+};
+
+
+
+
+
+
 
 
 
