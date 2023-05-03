@@ -630,7 +630,38 @@ void functionC(ClassA& obj) {
     // функция имеет доступ к приватным членам ClassA
 }
 
-// создаем дружественый класс
+// Определение методов вне класса. Вынести функцию в из класса. Вынести описание метода вне класса
+
+class MyClass{
+public:
+    void PrintMessage();
+    // обьявляем что есть такая функция
+    
+};
+
+void MyClass::PrintMessage() 
+//создаем функцию вынесеную из класса (возвращаемый тип, название класса, название функции)
+{
+    cout << "Hello!" << endl;
+}
+
+// Дружественный метод класса
+
+class ClassB{
+    void fun_1(ClassA &some){
+        cout << some.private_data << endl;
+    }
+};
+
+class ClassA{
+private:
+    int private_data_;
+
+    friend void ClassB::fun_1(ClassA &some);
+};
+
+// Дружественный класс
+
 class ClassA {
 private:
     int private_data_;
@@ -646,9 +677,6 @@ public:
         // ClassB имеет доступ к приватным членам ClassA
     }
 };
-
-
-
 
 
 
