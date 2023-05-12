@@ -716,7 +716,6 @@ MyClass::myStaticMethod();
 // Вложенные классы с++
 // https://www.youtube.com/watch?v=wPzP8G6OLJM
 
-
 class MyClass {
 public:
     int x;
@@ -724,7 +723,7 @@ public:
 
 int main() {
     MyClass myArray[5];
-// статический массив объектов класса MyClass
+    // статический массив объектов класса MyClass
     return 0;
 }
 
@@ -735,7 +734,7 @@ public:
 
 int main() {
     MyClass* myArray = new MyClass[5];
-// создать динамический массив объектов класса MyClass
+    // создать динамический массив объектов класса MyClass
     delete [] myArray;
     return 0;
 }
@@ -793,6 +792,154 @@ int main() {
     return 0;
 }
 
+// Вызов конструктора базового класса из конструктора класса-наследника
+
+class BaseClass {
+public:
+    BaseClass(int value) {
+        // код конструктора базового класса
+    }
+};
+
+class DerivedClass : public BaseClass {
+    // вызов базового конструктора из родительского класса
+public:
+    DerivedClass(int value) : BaseClass(value) {
+        // код конструктора класса-наследника
+    }
+};
+
+// Виртуальные методы кл
+// https://www.youtube.com/watch?v=YlbFPAugFNAасса
+
+// Абстрактный класс
+
+// Абстрактный класс фигуры
+class Shape {
+    public:
+        virtual float getArea() = 0;
+        // Чисто виртуальная функция для вычисления площади фигуры
+};
+// Производный класс Круг
+class Circle : public Shape {
+    // Наследование от абстрактного класса 
+private:
+    float radius;
+public:
+    Circle(float r) {
+        radius = r;
+    }
+
+    float getArea() override {
+        // переписыываем виртуальную функцию из абстрактного класса
+        return 3.14 * radius * radius;
+    }
+};
+
+// Виртуальный деструктор
+
+class Base {
+public:
+    virtual ~Base() {
+        // виртуальный деструктор
+    }
+};
+
+class Derived : public Base {
+public:
+    ~Derived() override {
+        // деструктор класса-наследника
+    }
+};
+
+int main() {
+    Base* b = new Derived();
+    // обьект основгого класса b - адрес на обьект класса наследника
+    delete b;
+    return 0;
+}
+// данный код нужен для того что бы удалить потом всю выделеную динамическую помаять если мы вызывали обьект класса наследника через обьект-поинтер основного класса
+// так мы предотвращаем утечку памяти 
+
+// Делегирующие конструкторы 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// STL бибилиотеки
+// vector   https://www.youtube.com/watch?v=1cKvMZOJeeE&list=PLQOaTSbfxUtDWAtIYme5MLZ1l0GTyUYkB&index=1&t=454s
+// вектор это быстрый динамический массив
+
+#include <vector>
+// подключаем векторы
+vector<int> myVector;
+// создали вектор с типом данных int
+vector<int> Vector(30,55);
+// сразу создает 30 элементов в векторе и все эти элементы будут равны 55 
+myVector.push_back(число);
+// добавляем число в конец вектора
+myVector.size();
+// получаем кол-ство элементов в векторе
+myVector.at(индекс элемента);
+// тоже самое что и myVector[индекс элемента], но плюс использования at в том что он не дает выйти за пределы вектора, но он медленее
+myVector.clear();
+// очищаем вектор
+myVector.pop_back();
+// удаляем последний элемент
+myVector.capasity();
+// возвращает количество элементов в векторе которые мы можем изменять без переписи вектора
+myVector.reserve();
+// указываем сколько будет элементов которые мы можем изменять без переписи вектора
+myVector.shrink_to_fit()
+// подгоняет кол-ство свободных элементов к кол-ству занятых элементов (если занято 8, а выделено 100 то после этой функции свободных будет тоже 8)
+myVector.insert(индекс элемента, число);
+// добавляем число в индекс элемента
+myVector.empty();
+// возвращает true если вектор пустой
+myVector.resize(2,23);
+// меняем кол-во элементов в векторе на 2 (и эти два элемента будут равны 23)
+
+
+
+
+
 
 
 
@@ -831,6 +978,7 @@ MyClass(int size)
     this -> size = size;
 // вместо this можно сделать следующим образом
 MyClass(int size):size
+Horse(string name, int age, string breed, int height) : Animal(name, age), breed(breed), height(height) {}
 
 // Проверка на то что ввели число а не чтото другое
 if (cin.fail()) 
