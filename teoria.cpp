@@ -99,18 +99,6 @@ do{
 break;    // останавливает цикл и выходит с него
 continue; // остаеться в цикле но пропускает код который ниже
 
-// Перехват ошибки
-
-try
-{ // начало блока в котором мы пытаемся выполнить код в который может вызвать ошибку
-    код
-    throw номер ошибки // вводим номер ошибки
-}
-catch (int i)
-{ // начало блока в котором мы обрабатываем возможную ошибку вызваную оператором throw(в i мы переносим номер ошибки)
-    cout << "Error #" << i << "описание ошибки(не обязательно)" << endl;
-}
-
 // Массив и размеры
 
 // название массива это указатель на его первый элемент
@@ -863,7 +851,118 @@ int main() {
 
 // Делегирующие конструкторы 
 
+class Human {
+public:   
+    Human(string name){
+        this -> Name = name;
+        this -> Age = 0;
+        this -> Weight = 0;
+    }
+    Human(string name, int age): Human(name){
+        // присваивание переменной Name делегируеться из конструктора выше 
+        this -> Age = age;
+        this -> Weight = 0;
+    }
+}
 
+// Bызов виртуального метода базового класса
+
+class Base {
+public:
+    virtual void foo() {
+        cout << "Base::foo()\n";
+    }
+};
+
+class Derived : public Base {
+public:
+    void foo() override {
+        cout << "Derived::foo()\n";
+    }
+
+    void bar() {
+        Base::foo(); // вызов метода родительского класса
+        foo(); // вызов метода данного класса
+    }
+};
+
+int main() {
+    Derived d;
+    d.bar();
+    return 0;
+}
+
+// Множественное наследование
+
+class Car {
+public:
+    void Drive(){
+        cout << "I drive car!" << endl;
+    }
+};
+// создали первый класс
+
+class Airplain{
+public:
+    void Fly(){
+        cout << "I fly!" << endl;
+    }
+};
+// создали второй класс
+
+class FlyCar: public Car, public Airplain{
+    
+};
+// создали третий класс который наследует все публичное от классов Car и Airplain
+
+// Множественное наследование одинаковые методы
+
+FlyCar c;
+// Создаем обьект С класса FlyCar
+((Car)c).Use();
+// преобразовываем С в обьект класса Car и вызываем метод который указан в классе Car
+((Airplain)c).Use();
+// преобразовываем С в обьект класса Airplain и вызываем метод который указан в классе Airplain
+// Но есть разные варианты как это сделать
+(Car(c)).Use();
+// будет рабоать так же само как и ((Car)c).Use();
+(Airplain(c)).Use();
+// аналогично ((Airplain)c).Use();
+
+// Интерфейс
+
+// Интерфейс в C++ - это абстрактный класс, содержащий только чисто виртуальные функции (pure virtual functions), 
+// которые не имеют реализации в базовом классе. Интерфейс используется для определения общего набора методов,
+// которые должны быть реализованы в классах-наследниках.
+
+class Shape {
+public:
+    virtual void draw() const = 0;
+    virtual double area() const = 0;
+};
+// делаем абстрактный класс который являеться интерфейсом
+
+class Circle : public Shape {
+public:
+    Circle(double r) : radius(r) {}
+    void draw() const override { /* реализация */ }
+    // переписывает функцию полученую из абстрактного класса путем наследования
+    double area() const override { /* реализация */ }
+    // переписывает функцию полученую из абстрактного класса путем наследования
+private:
+    double radius;
+};
+// делаем класс который наследует абстрактный класс(Интерфейс) Shape и реализируем его 
+void printArea(const Shape& shape) {
+    cout << "Area is " << shape.area() << endl;
+}
+// функция которая будет выводить результат
+int main() {
+    Circle c(5);
+    printArea(c); 
+    // вызов функции с объектом типа Circle, реализующим интерфейс Shape
+    return 0;
+}
 
 
 
@@ -974,11 +1073,14 @@ myVector.resize(2,23);
 // Прочая полезная фигня
 
 // ООП
-MyClass(int size)
-    this -> size = size;
-// вместо this можно сделать следующим образом
-MyClass(int size):size
+Human(string name): Name(name), Age(0), Weight(0){
+// this -> Name = name;
+// this -> Age = 0;
+// this -> Weight = 0;
+}
+// сокращенная запись
 Horse(string name, int age, string breed, int height) : Animal(name, age), breed(breed), height(height) {}
+// тут ситуация когда мы хотим взять параметры с класса-родителя
 
 // Проверка на то что ввели число а не чтото другое
 if (cin.fail()) 
