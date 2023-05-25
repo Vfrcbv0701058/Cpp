@@ -39,7 +39,7 @@ x /= 2              // делим на два
 \t // переход к следующей позиции табуляции
 \b // удаление последнего выведеного символа 
 \\ // вывести обратный слеш (\) 
-const int x = число; // создает констанку которую потом нелзя поменять
+const int x = число; // создает константу которую потом нельзя поменять
 
 // Условия
 
@@ -990,7 +990,250 @@ class D : public B, public C {
 public:
 };
 
-// 
+// try catch 
+
+try {
+    // код в котором может быть ошибка 
+} catch (const exception &ex/* тип исключения, которое мы хотим перехватить и обработать */) {
+    // Код который будет выполняться при ошибке  
+}
+const exception &ex
+// класс exception который представляет собой класс стандартных ошибок 
+runtime_error
+// Представляет ошибку, возникающую во время выполнения программы
+out_of_range
+// Исключение, которое возникает при обращении к элементу контейнера (например, массива, вектора или строки) по индексу или итератору, выходящему за пределы допустимого диапазона.
+logic_error
+// Представляет ошибку в логике программы
+ex.what()
+// Возвращает описание ошибки 
+ex.code()
+// Возвращает код ошибки
+ds.exceptions(ifstream::badbit | ifstream::failbit);
+// Используеться при работе с файлами для корректной работы блока try catch 
+// badbit указывает на серьезные ошибки, связанные с самим потоком, такие как невозможность открытия файла или ошибки ввода-вывода.
+// failbit указывает на ошибки формата или состояния потока, например, некорректный формат данных.
+
+// Throw
+
+throw тип ошибки
+// Оператор который бросает тип ошибки и в чем она заключается 
+// типо ошибки может быть что угодно: строка, символ, число и тд и тп
+throw runtime_error("Чисило меньше нуля");
+// выводим в качестве ошибки строку
+catch(const exception &ex)
+// то что находиться внутри catch должно соотвествовать по типу данных с типом ошибки (throw) 
+// лучше всего спользовать exception и так мы через ex.what() можем получить throw и понять в чем ошибка
+
+// Несколько блоков catch
+
+try {
+    // Код, в котором может возникнуть исключение
+    throw SomeException(); // Генерация исключения
+}
+catch (const SomeException& ex) {
+    // Обработка исключения типа SomeException
+    // ex содержит информацию об исключении
+}
+catch (const AnotherException& ex) {
+    // Обработка исключения типа AnotherException
+}
+catch (...) {
+    // Обработка всех остальных исключений
+}
+
+// Свой класс exception(исключений)
+// https://www.youtube.com/watch?v=wCUl7yTHWq8
+
+// Перечисляемый тип enum
+// https://www.youtube.com/watch?v=BMmbQ81lQd0
+
+enum Color {
+    RED, // 0
+    GREEN, // 1
+    BLUE // 2
+};
+
+int main() {
+    Color col = RED;
+    cout << col << endl; 
+    // выведет 0, так как RED = 0
+}
+
+// Пространства имен. namespace
+
+namespace MyNamespace {
+    int x = 5;
+    
+    void printX() {
+        cout << "x = " << x << std::endl;
+    }
+}
+
+int main() {
+    MyNamespace::printX();  
+    // Выводит "x = 5"
+    
+    return 0;
+}
+
+using namespace MyNamespace;
+
+int main() {
+    printX();  
+    // Берет данные из пространства имен MyNamespace и выводит "x = 5"
+    
+    return 0;
+}
+
+// Шаблоны классов
+
+template <typename T>
+class MyClass {
+private:
+    T value;
+
+public:
+    MyClass(T val) {
+        value = val;
+    }
+
+    T getValue() {
+        return value;
+    }
+
+    void setValue(T val) {
+        value = val;
+    }
+};
+
+MyClass<int> obj1(5);        
+// Создание экземпляра MyClass с типом int
+int value1 = obj1.getValue();
+
+MyClass<double> obj2(3.14); 
+// Создание экземпляра MyClass с типом double
+double value2 = obj2.getValue();
+
+MyClass<string> obj3("Hello");  
+// Создание экземпляра MyClass с типом std::string
+string value3 = obj3.getValue();
+
+// Структуры
+
+struct BaseStruct {
+    int x;
+    // Изначально создает пременную в стиле public (обычно когда в классе создают переменную без модификатора то он становиться автоматически private)
+};
+
+struct DerivedStruct : BaseStruct {
+    // DerivedStruct наследует член x от BaseStruct как public
+};
+
+class BaseClass {
+    int private;
+public:
+    int public;
+};
+
+class DerivedClass : BaseClass {
+    // DerivedClass НЕ наследует private от BaseClass
+    // DerivedClass наследует public от BaseClass
+};
+
+struct BaseStruct {
+    int public;
+};
+
+struct DerivedStruct : public BaseStruct {
+    // DerivedStruct наследует public от BaseStruct с публичным доступом
+};
+
+// Использование структур
+
+struct Point {
+    int x;
+    int y;
+};
+// Создали структуру
+
+void printPoint(Point p) {
+    cout << "Point coordinates: (" << p.x << ", " << p.y << ")" << endl;
+}
+// Выводим значения из структуры
+
+int main() {
+    Point myPoint = { 3, 5 };
+    printPoint(myPoint);
+    return 0;
+}
+// Вывод: Point coordinates: (3, 5)
+
+// Умные указатели
+
+template<typename T>
+class SmartPointer{
+private:
+    T *ptr;
+public:
+    SmartPointer(T *ptr): ptr(ptr){
+        
+    }
+    
+    ~SmartPointer(){
+        delete ptr;
+    }
+    
+    T& operator *(){
+        return *ptr;
+    }
+};
+// Создали шаблонный класс SmartPointer который будет умным указателем и будет рабоать с любым типом
+SmartPointer<int> Pointer = new int(5);
+// Создали умный указатель типа int и назначили ему динамичесскую память с числом 5
+
+// auto_ptr | unique_ptr | shared_ptr | Умные указатели
+// https://www.youtube.com/watch?v=dpRozfXepnA&list=PLQOaTSbfxUtCrKs0nicOg2npJQYSPGO9r&index=153
+
+#include <memory>
+// библиотека для того что бы подключить умные поинтеры
+unique_ptr
+// unique_ptr обеспечивает уникальное владение объектом. Это означает, что у unique_ptr есть единственный владелец объекта
+unique_ptr<int> ptr(new int(5));    
+// Использование ptr
+cout << *ptr << endl;
+// После выхода из области видимости ptr автоматически освобождает память
+
+shared_ptr
+
+// shared_ptr предоставляет разделенное (shared) владение объектом.
+// Это означает, что у shared_ptr может быть несколько владельцев, и объект будет удален только тогда, 
+// когда все владельцы shared_ptr освободят его или явно освободят память
+shared_ptr<int> ptr1(new int(5));
+shared_ptr<int> ptr2 = ptr1;
+// Создание второго shared_ptr, разделяющего владение с ptr1
+cout << *ptr1 << endl;
+cout << *ptr2 << endl;
+// Использование ptr1 и ptr2
+// После выхода из области видимости ptr1 и ptr2 автоматически освобождают память
+    
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		640D2BC42A0CC6A0006055C9 /* Homework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 640D2BC22A0CC6A0006055C9 /* Homework.cpp */; };
+		64FD7DF32A18044200268FEF /* Himework_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64FD7DF22A18044200268FEF /* Himework_2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		640D2BC22A0CC6A0006055C9 /* Homework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Homework.cpp; sourceTree = "<group>"; };
 		64693B0A29CB0873006ADC44 /* Rock Paper Scissors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Rock Paper Scissors"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64FD7DF22A18044200268FEF /* Himework_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Himework_2.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 		64693B0129CB0873006ADC44 = {
 			isa = PBXGroup;
 			children = (
+				64FD7DF22A18044200268FEF /* Himework_2.cpp */,
 				640D2BC22A0CC6A0006055C9 /* Homework.cpp */,
 				64693B0B29CB0873006ADC44 /* Products */,
 			);
@@ -111,6 +114,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64FD7DF32A18044200268FEF /* Himework_2.cpp in Sources */,
 				640D2BC42A0CC6A0006055C9 /* Homework.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
