@@ -1,6 +1,23 @@
 {
     "files.associations": {
         "iosfwd": "cpp",
-        "exception": "cpp"
+        "exception": "cpp",
+        "stdexcept": "cpp",
+        "__bit_reference": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "filesystem": "cpp",
+        "bitset": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "thread": "cpp",
+        "chrono": "cpp"
     }
 }
